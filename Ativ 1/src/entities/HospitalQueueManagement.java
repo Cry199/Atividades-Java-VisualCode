@@ -1,6 +1,5 @@
 package entities;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class HospitalQueueManagement 
@@ -8,6 +7,8 @@ public class HospitalQueueManagement
 	private String[] queue;
 	private int last;
 	private int next;
+
+	String[] filas1 = new String[5];
 	
 	public HospitalQueueManagement() {}
 	
@@ -32,7 +33,8 @@ public class HospitalQueueManagement
 		this.next = next;
 	}
 	
-	public void setQueue(String[] queue) {
+	public void setQueue(String[] queue) 
+	{
 		this.queue = queue;
 	}
 
@@ -42,21 +44,49 @@ public class HospitalQueueManagement
 	}
 	
 	public void next()
-	{
-       preferencial();
+	{	
+		preferencial();
 
-       
+		next++;
+		last++;
 	}
 	
 	public void drawBoard()
 	{
-		for (String c : this.queue) 
-        {
-            System.out.println(c);
-        }
+
+		System.out.printf("|---------------------|\n");
+		System.out.printf("| %s |\n", String.format("%-19s","Próximo: " + queue[next]));
+		System.out.printf("|---------------------|\n");
+		System.out.printf("|   Últimas senhas:   |\n");
+
+		if(last > 1)
+		{
+			System.out.printf("| %s |\n", String.format("%-19s", queue[last] + ", " + queue[last - 1] + ", " + queue[last - 2]));
+		}
+		else if(last > 0)
+		{
+			System.out.printf("| %s |\n", String.format("%-19s", queue[last] + ", " + queue[last - 1]));
+		}
+		else if(last > -1)
+		{
+			System.out.printf("| %s |\n", String.format("%-19s", queue[last])); 
+		}
+		else
+		{
+			System.out.printf("|         Null        |\n");
+		}
+
+		System.out.printf("|---------------------|\n");
+	}
+
+	public void entireQueue()
+	{
+		for (String s: queue) 
+		{
+			System.out.println(s);
+		}
 	}
 	
-    String[] filas1 = new String[5];
 	public void fila(int x, boolean preferential)
 	{	
 		if(x == filas1.length)
@@ -72,21 +102,12 @@ public class HospitalQueueManagement
                 filas1[i] = filas2[i];
             }     
 		}
+		filas1[x] = senhaAle(preferential);
 
-        for (int i = 0; i < filas1.length; i++) 
-        {
-            if(filas1[i] == null)
-            {
-                filas1[i] = "0";
-            }
-        }
-        
-        filas1[x] = senhaAle(preferential);
-
-        queue = filas1;
+		toFillIn();
 	}
 	
-	public String senhaAle(boolean preferential)
+	private String senhaAle(boolean preferential)
 	{
 		Random gerador = new Random();
 		int n = gerador.nextInt(900) + 100;
@@ -101,14 +122,17 @@ public class HospitalQueueManagement
 		}
 	}
 
-    protected void preferencial() 
+    private void preferencial() 
     {
+		toFillIn();
+
         String[] queueTemp = new String[queue.length];
         int j = 0;
         for (int i = 0; i < queue.length; i++) 
         {
             if (queue[i].charAt(queue[i].length() - 1) == 'P') 
             {
+
                 queueTemp[j] = queue[i];
                 j++;
             }
@@ -125,8 +149,17 @@ public class HospitalQueueManagement
         queue = queueTemp;
     }
 
-	@Override
-	public String toString() {
-		return " " + Arrays.toString(queue);
+	private void toFillIn()
+	{
+		for (int i = 0; i < filas1.length; i++) 
+        {
+            if(filas1[i] == null)
+            {
+                filas1[i] = "0";
+            }
+        }
+
+		queue = filas1;
 	}
+
 }
