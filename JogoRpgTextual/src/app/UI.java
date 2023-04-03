@@ -25,6 +25,6 @@ public class UI
 		}
 		while(! play.equalsIgnoreCase("jogar"));
 
-		match.start();
+		match.game(sc);
 	}
 }

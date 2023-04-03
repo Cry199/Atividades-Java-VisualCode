@@ -1,33 +1,31 @@
 package Game;
 
 import java.util.Random;
+import java.util.Scanner;
+
+import Game.Rooms.Rooms;
 
 public class Match 
 {
     private int roomChoices;
+    private int userResponse;
 
     Random gerador = new Random();
-    
-    public void start()
+    Rooms room = new Rooms();
+
+    public void game(Scanner sc)
     {
-        roomChoices = randomNumberForRooms();
+        randomNumberForRooms();
 
-        if(roomChoices == 1)
-        {
-            
-        }
-        else if (roomChoices == 2)
-        {
+        userResponse = room.screenForFirstRoom(sc, roomChoices);
 
-        }
-        else if (roomChoices == 3)
-        {
-
-        }
+        
     }
 
-    private int randomNumberForRooms()
+    
+
+    private void randomNumberForRooms()
     {
-        return roomChoices = gerador.nextInt(3) + 1;
+        roomChoices = gerador.nextInt(3) + 1;
     }
 }
