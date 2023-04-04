@@ -162,8 +162,8 @@ class Main{
       ||num1 == 1 && resp1 == 4 && rezar == 0
       ||num1 == 3
       ||num1==2 && resp1==3
-      ||num1==2 && opcao==2)
-      {
+      ||num1==2 && opcao==2)  
+      { //--------------------------------------- VALIDADE DE MORTE --------------------------
         num2 = (int) (Math.random() * 2) + 1;
         //System.out.println(num2);
         chanceLobo = (int) (Math.random() * 4)+1;

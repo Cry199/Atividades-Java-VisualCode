@@ -82,25 +82,37 @@ public class MainChoice
         return userResponse;
     }
 
-    public void start(Scanner sc)
+    public void start(Scanner sc, boolean continuationOfTheGame)
     {   
         randomNumberForRooms();
 
         this.userResponse = room.screenForFirstRoom(sc, roomChoices);
 
-        choices(sc);
+        choices(sc, continuationOfTheGame);
 
     }
 
-    private void choices(Scanner sc)
+    private void choices(Scanner sc, boolean continuationOfTheGame)
     {
-        FirstRandomness fr = new FirstRandomness(knife, option, sword, snakeRoom, roomChoices, userResponse);
-
-        fr.randomness(sc);
+        if(continuationOfTheGame == true)
+        {
+            FirstRandomness firstRandomness = new FirstRandomness(knife, option, sword, snakeRoom, roomChoices, userResponse);
+            firstRandomness.randomness(sc, continuationOfTheGame);
+        }
 
         System.out.println();
 
-        
+        if(continuationOfTheGame == true)
+        {
+            
+        }
+
+        System.out.println();
+
+        if(continuationOfTheGame == true)
+        {
+
+        }
     }
 
     private void randomNumberForRooms()

@@ -1,4 +1,4 @@
-package Game.EndOfTheGame;
+package Game.PrintGame;
 
 public class EndGame
 {
@@ -55,4 +55,6 @@ public class EndGame
     {
         System.out.println("Enquanto você se ajoelha para rezar, você ouve a cobra se aproximando, sua respiração comeaça a ficar cada vez mais ofegante, e a cobra realiza um ataque com sucesso, picando seu pescoço e lhe deixando para morrer.");
     }
+
+    /* --------------------- */
 }

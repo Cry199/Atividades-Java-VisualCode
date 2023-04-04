@@ -28,8 +28,8 @@ public class UI
 		while(! play.equalsIgnoreCase("jogar"));
 	}
 
-	public static void startOfTheMatch(Scanner sc, MainChoice mainChoice)
+	public static void startOfTheMatch(MainChoice mainChoice, Scanner sc, boolean continuationOfTheGame)
 	{
-		mainChoice.start(sc);
+		mainChoice.start(sc, continuationOfTheGame);
 	}
 }

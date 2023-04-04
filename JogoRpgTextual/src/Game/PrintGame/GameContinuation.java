@@ -1,4 +1,4 @@
-package Game.EndOfTheGame;
+package Game.PrintGame;
 
 public class GameContinuation 
 {
