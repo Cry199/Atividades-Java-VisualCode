@@ -1,214 +1,110 @@
 package Game.Choices;
 
+import java.util.Random;
 import java.util.Scanner;
 
-import Game.Match;
-import Game.EndOfTheGame.EndGame;
-import Game.EndOfTheGame.GameContinuation;
+import Game.Rooms.Rooms;
 
-public class MainChoice extends Match
-{   
+public class MainChoice
+{
     private int knife;
     private int option;
     private int sword;
     private int snakeRoom;
+    private int roomChoices;
+    private int userResponse;
 
-    EndGame endGame = new EndGame();
-    GameContinuation gameContinuation = new GameContinuation();
+    Random gerador = new Random();
+    Rooms room = new Rooms();
 
-    public MainChoice(int roomChoices, int userResponse)
-    {   
-        super(roomChoices, userResponse);
+    public MainChoice(){
+        
     }
 
-    public MainChoice(int roomChoices, int userResponse, int knife, int option)
-    {   
-        super(roomChoices, userResponse);
+    /* First Randomness */
+    public MainChoice(int knife, int option, int sword, int snakeRoom, int roomChoices, int userResponse)
+    {
         this.knife = knife;
         this.option = option;
+        this.sword = sword;
+        this.snakeRoom = snakeRoom;
+        this.roomChoices = roomChoices;
+        this.userResponse = userResponse;
     }
 
-    public int getKnife()
+    protected void setKnife(int knife)
+    {
+        this.knife = knife;
+    }
+
+    protected int getKnife()
     {
         return knife;
     }
 
-    public int getOption()
+    protected void setSword(int sword)
+    {
+        this.sword = sword;
+    }
+
+    protected int getSword()
+    {
+        return sword;
+    }
+
+    protected void setOption(int option)
+    {
+        this.option = option;
+    }
+
+    protected int getOption()
     {
         return option;
     }
 
-    public void choices(Scanner sc)
+    protected void setSnakeRoom(int snakeRoom)
     {
-        firstRandomness(sc);
+        this.snakeRoom = snakeRoom;
+    }
+
+    protected int getSnakeRoom()
+    {
+        return snakeRoom;
+    }
+
+    protected int getRoomChoices()
+    {
+        return roomChoices;
+    }
+
+    protected int getUserResponse()
+    {
+        return userResponse;
+    }
+
+    public void start(Scanner sc)
+    {   
+        randomNumberForRooms();
+
+        this.userResponse = room.screenForFirstRoom(sc, roomChoices);
+
+        choices(sc);
+
+    }
+
+    private void choices(Scanner sc)
+    {
+        FirstRandomness fr = new FirstRandomness(knife, option, sword, snakeRoom, roomChoices, userResponse);
+
+        fr.randomness(sc);
 
         System.out.println();
 
-
-
+        
     }
 
-    private void firstRandomness(Scanner sc)
+    private void randomNumberForRooms()
     {
-        if(super.getRoomChoices() == 1)
-        {
-            firstChoice(sc);
-        }
-        else if(super.getRoomChoices() == 2)
-        {
-            secondChoice(sc);
-        }
-        else if(super.getRoomChoices() == 3)
-        {
-            thirdChoice(sc);
-        } 
+        roomChoices = gerador.nextInt(3) + 1;
     }
-
-    private void firstChoice(Scanner sc)
-    {
-        if(super.getUserResponse() == 1)
-        {
-           endGame.oneDeath(); 
-        }
-        else if(super.getUserResponse() == 2)
-        {
-            System.out.println("Com medo do que o animal seja peçonhento ou mortal, você decide sair da sala, evitando ao máximo chamar a atenção da cobra.");
-
-            snakeRoom = (int) (Math.random() * 2);
-            if((int) (Math.random() * 2) == 1)
-            {
-              System.out.println("Você consegue escapar da sala.");
-            }
-            else
-            {
-                endGame.twoDeath();
-            }
-        }
-        else if(super.getUserResponse() == 3)
-        {
-            clearScreen();
-
-            System.out.println("Abrindo sua mochila e vasculhando por possíveis materiais, você encontra uma faca pequena.");
-            System.out.println("1.Equipar");
-            System.out.println("2.Guardar");
-            knife = sc.nextInt();
-
-            clearScreen();
-
-            if(knife == 1)
-            {
-                System.out.println("Você equipou a faca");
-            }
-            else if(knife == 2)
-            {
-                System.out.println("Você guardou a faca");
-            }
-
-            System.out.println();
-            System.out.println("Atiçada pelos sons de você mexendo em suas coisas, o animal se aproxima ferozmente.");
-
-            if(knife == 1)
-            {
-                System.out.println("Já esperando por isso, você se prepara para o bote.");
-                System.out.println("Ela avança, e você acerta uma estocada certeira em sua cabeça, finalizando-a.");
-                System.out.println("Orgulhoso de seu sucesso, você recupera sua faca e abre a próxima porta.");
-            }
-            else
-            {
-                endGame.threeDeath();
-            }
-        }
-        else if(super.getUserResponse() == 4)
-        {
-            clearScreen();
-
-            if((int) (Math.random() * 1) == 0)
-            {
-                System.out.println("Enquanto você está rezando, você consegue ouvir alguns rastejos, a cobra está se afasando por algum milagre divino, possibilitando que você fuja.");
-                System.out.println("Você sai da sala"); 
-            }
-            else
-            {
-                endGame.fourDeath();
-            }
-        }
-    }
-
-    private void secondChoice(Scanner sc)
-    {
-        if(super.getUserResponse() == 1)
-        {
-            clearScreen();
-            endGame.deathGoblin();
-        }
-        else if(super.getUserResponse() == 2)
-        {
-            clearScreen();
-
-            System.out.println("Estranhando a situação, você começa a analisar os arredores ainda melhor.");
-            System.out.println("Aos poucos seus olhos se acostumam com a escuridão e você pode ver uma pequena silhueta a sua direita. Ainda está muito escuro, então você não consegue identificar o que exatamente pode ser.");
-            System.out.println("O que deseja fazer?");
-            System.out.println("1.Pegar as moedas");
-            System.out.println("2.Sair da sala");
-            option = sc.nextInt();
-
-            System.out.println();
-            if(option == 1)
-            {
-                clearScreen();
-                endGame.deathGoblin();
-            }
-            else if(option == 2)
-            {
-                clearScreen();
-                gameContinuation.goblinExit();
-            }
-        }
-        else if(super.getUserResponse() == 3)
-        {
-            clearScreen();
-            gameContinuation.goblinExit();
-        }
-    }
-
-    private void thirdChoice(Scanner sc)
-    {
-        clearScreen();
-
-        if(super.getUserResponse() == 1)
-        {
-            System.out.println("Você se aproxima e repara melhor na arma, é uma lâmina muito bem forjada, seu fio em perfeito estado e com algumas marcações estranhas no cabo.");
-            System.out.println("O que deseja fazer?");
-            System.out.println("1.Pegar a espada");
-            System.out.println("2.Ignorar e ir para a próxima sala");
-            sword = sc.nextInt();
-
-            clearScreen();
-
-            gameContinuation.choiceOfSword(sword);
-        }
-        else if(super.getUserResponse() == 2)
-        {
-            System.out.println("Com uma estranha sensação de 'algo está errado', você decide analisar melhor o quarto, passa pelas paredes cautelosamente, pisa no chão em alguns lugares específicos esperando algum tipo de armadilha, se aproxima da espada o suficiente para analisá-la...");
-            System.out.println("Mas nada acontece.");
-            System.out.println("O que deseja fazer?");
-            System.out.println("1.Pegar espada");
-            System.out.println("2.Sair da sala");
-            sword = sc.nextInt();
-
-            clearScreen();
-
-            gameContinuation.choiceOfSword(sword);
-        }
-        else if(super.getUserResponse() == 3)
-        {
-            System.out.println("Não convencido pela sala em si, e receoso com o que possa acontecer caso se aproxime da lâmina, você sai da sala.");
-        }
-    }
-
-    private void clearScreen() 
-    {
-		System.out.print("\033[H\033[2J");
-		System.out.flush();
-	}
 }

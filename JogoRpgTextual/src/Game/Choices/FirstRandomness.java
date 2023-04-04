@@ -7,34 +7,16 @@ import Game.EndOfTheGame.GameContinuation;
 
 public class FirstRandomness extends MainChoice 
 {
-    private int knife;
-    private int option;
-    private int sword;
-    private int snakeRoom;
-
     EndGame endGame = new EndGame();
     GameContinuation gameContinuation = new GameContinuation();
 
-    public FirstRandomness(int roomChoices, int userResponse) {
-        super(roomChoices, userResponse);
-    }
-    
-    public int getKnife()
+
+    public FirstRandomness(int knife, int option, int sword, int snakeRoom, int roomChoices, int userResponse)
     {
-        return knife;
+        super(knife, option, sword, snakeRoom, roomChoices, userResponse);
     }
 
-    public int getOption()
-    {
-        return option;
-    }
-
-    public int getSnakeRoom()
-    {
-        return snakeRoom;
-    }
-
-    private void firstRandomness(Scanner sc)
+    protected void randomness(Scanner sc)
     {
         if(super.getRoomChoices() == 1)
         {
@@ -60,8 +42,8 @@ public class FirstRandomness extends MainChoice
         {
             System.out.println("Com medo do que o animal seja peçonhento ou mortal, você decide sair da sala, evitando ao máximo chamar a atenção da cobra.");
 
-            snakeRoom = (int) (Math.random() * 2);
-            if(snakeRoom == 1)
+            super.setSnakeRoom((int) (Math.random() * 2));
+            if(super.getSnakeRoom() == 1)
             {
               System.out.println("Você consegue escapar da sala.");
             }
@@ -77,15 +59,15 @@ public class FirstRandomness extends MainChoice
             System.out.println("Abrindo sua mochila e vasculhando por possíveis materiais, você encontra uma faca pequena.");
             System.out.println("1.Equipar");
             System.out.println("2.Guardar");
-            knife = sc.nextInt();
+            super.setKnife(sc.nextInt());
 
             clearScreen();
 
-            if(knife == 1)
+            if(super.getKnife() == 1)
             {
                 System.out.println("Você equipou a faca");
             }
-            else if(knife == 2)
+            else if(super.getKnife() == 2)
             {
                 System.out.println("Você guardou a faca");
             }
@@ -93,7 +75,7 @@ public class FirstRandomness extends MainChoice
             System.out.println();
             System.out.println("Atiçada pelos sons de você mexendo em suas coisas, o animal se aproxima ferozmente.");
 
-            if(knife == 1)
+            if(super.getKnife() == 1)
             {
                 System.out.println("Já esperando por isso, você se prepara para o bote.");
                 System.out.println("Ela avança, e você acerta uma estocada certeira em sua cabeça, finalizando-a.");
@@ -136,15 +118,15 @@ public class FirstRandomness extends MainChoice
             System.out.println("O que deseja fazer?");
             System.out.println("1.Pegar as moedas");
             System.out.println("2.Sair da sala");
-            option = sc.nextInt();
+            super.setOption(sc.nextInt());
 
             System.out.println();
-            if(option == 1)
+            if(super.getOption() == 1)
             {
                 clearScreen();
                 endGame.deathGoblin();
             }
-            else if(option == 2)
+            else if(super.getOption() == 2)
             {
                 clearScreen();
                 gameContinuation.goblinExit();
@@ -167,11 +149,11 @@ public class FirstRandomness extends MainChoice
             System.out.println("O que deseja fazer?");
             System.out.println("1.Pegar a espada");
             System.out.println("2.Ignorar e ir para a próxima sala");
-            sword = sc.nextInt();
+            super.setSword(sc.nextInt());
 
             clearScreen();
 
-            gameContinuation.choiceOfSword(sword);
+            gameContinuation.choiceOfSword(super.getSword());
         }
         else if(super.getUserResponse() == 2)
         {
@@ -180,18 +162,17 @@ public class FirstRandomness extends MainChoice
             System.out.println("O que deseja fazer?");
             System.out.println("1.Pegar espada");
             System.out.println("2.Sair da sala");
-            sword = sc.nextInt();
+            super.setSword(sc.nextInt());
 
             clearScreen();
 
-            gameContinuation.choiceOfSword(sword);
+            gameContinuation.choiceOfSword(super.getSword());
         }
         else if(super.getUserResponse() == 3)
         {
             System.out.println("Não convencido pela sala em si, e receoso com o que possa acontecer caso se aproxime da lâmina, você sai da sala.");
         }
     }
-
 
     private void clearScreen() 
     {

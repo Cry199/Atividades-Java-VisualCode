@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
-import Game.Match;
+import Game.Choices.MainChoice;
+
+
 
 public class UI 
 {  
@@ -10,7 +12,7 @@ public class UI
 		System.out.flush();
 	}
 
-	public static void printMatch(Scanner sc, Match match)
+	public static void printMatch(Scanner sc)
 	{
 		System.out.println("RPG Textual!");  
         System.out.println("Você é um explorador desafortunado, que precisa ter algum sucesso em sua próxima aventura para conseguir se manter como um aventureiro. Então você decide explorar um antigo domínio desconhecido a fim de buscar tesouros!");
@@ -24,7 +26,10 @@ public class UI
 			play = sc.next();	
 		}
 		while(! play.equalsIgnoreCase("jogar"));
+	}
 
-		match.game(sc);
+	public static void startOfTheMatch(Scanner sc, MainChoice mainChoice)
+	{
+		mainChoice.start(sc);
 	}
 }
