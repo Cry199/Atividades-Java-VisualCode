@@ -2,7 +2,7 @@ package Game.EndOfTheGame;
 
 public class EndGame
 {
-    public void goblin()
+    public void deathGoblin()
     {
         System.out.println("Feliz por encontrar um pouco de sorte finalmente, você caminha diretamente até elas.");
         System.out.println("Um...dois...três...cinco passos, aos poucos você vai se aproximando");

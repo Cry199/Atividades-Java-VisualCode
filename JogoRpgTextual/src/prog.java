@@ -156,7 +156,7 @@ class Main{
      System.out.println("Não convencido pela sala em si, e receoso com o que possa acontecer caso se aproxime da lâmina, você sai da sala.");
     }
     System.out.println();
-    //-------------------------------------------------------------------
+    //---------------------------------------con --------------------------
     if(num1 == 1 && resp1 == 2 && salaCobra == 1
       ||num1 == 1 && resp1 == 3 && faca == 1
       ||num1 == 1 && resp1 == 4 && rezar == 0
@@ -315,11 +315,11 @@ class Main{
 
     if(lobo==2)
     {
-      faca =1;
+      faca = 1;
     }
     
     System.out.println();
-    //-------------------------------------------------------------------
+    //-------------1234------------------------------------------------------
     
     if(num2 == 1 && lobo== 1 || num2 == 1 && lobo == 2||
     num2 == 1 && lobo == 3 && chanceLobo == 3 ||

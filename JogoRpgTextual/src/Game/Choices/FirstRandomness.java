@@ -2,12 +2,11 @@ package Game.Choices;
 
 import java.util.Scanner;
 
-import Game.Match;
 import Game.EndOfTheGame.EndGame;
 import Game.EndOfTheGame.GameContinuation;
 
-public class MainChoice extends Match
-{   
+public class FirstRandomness extends MainChoice 
+{
     private int knife;
     private int option;
     private int sword;
@@ -16,18 +15,10 @@ public class MainChoice extends Match
     EndGame endGame = new EndGame();
     GameContinuation gameContinuation = new GameContinuation();
 
-    public MainChoice(int roomChoices, int userResponse)
-    {   
+    public FirstRandomness(int roomChoices, int userResponse) {
         super(roomChoices, userResponse);
     }
-
-    public MainChoice(int roomChoices, int userResponse, int knife, int option)
-    {   
-        super(roomChoices, userResponse);
-        this.knife = knife;
-        this.option = option;
-    }
-
+    
     public int getKnife()
     {
         return knife;
@@ -38,14 +29,9 @@ public class MainChoice extends Match
         return option;
     }
 
-    public void choices(Scanner sc)
+    public int getSnakeRoom()
     {
-        firstRandomness(sc);
-
-        System.out.println();
-
-
-
+        return snakeRoom;
     }
 
     private void firstRandomness(Scanner sc)
@@ -75,7 +61,7 @@ public class MainChoice extends Match
             System.out.println("Com medo do que o animal seja peçonhento ou mortal, você decide sair da sala, evitando ao máximo chamar a atenção da cobra.");
 
             snakeRoom = (int) (Math.random() * 2);
-            if((int) (Math.random() * 2) == 1)
+            if(snakeRoom == 1)
             {
               System.out.println("Você consegue escapar da sala.");
             }
@@ -205,6 +191,7 @@ public class MainChoice extends Match
             System.out.println("Não convencido pela sala em si, e receoso com o que possa acontecer caso se aproxime da lâmina, você sai da sala.");
         }
     }
+
 
     private void clearScreen() 
     {

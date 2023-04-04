@@ -35,9 +35,9 @@ public class Rooms
         return sc.nextInt();
     }
     
-    public int screenForSecondRoom(Scanner sc, int chooseUser)
+    public int screenForSecondRoom(Scanner sc, int roomChoices)
     {  
-        if(chooseUser == 1)
+        if(roomChoices == 1)
         {
             System.out.println("Ao entrar no novo cômodo, você logo repara na falta de cor do ambiente, as paredes e chão emanam energias negativas.");
             System.out.println("Você escuta a porta atrás de você se trancando, logo em seguida você consegue escutar um rosnado furioso vindo do centro.");
@@ -47,7 +47,7 @@ public class Rooms
             System.out.println("2.Defender");
             System.out.println("3.Abrir Mochila");
         }
-        else if(chooseUser == 2)
+        else if(roomChoices == 2)
         {
           System.out.println("Ao entrar no novo cômodo, ele se assemelha a um óasis, tem diversas árvores com frutos chamativos e suculentos, um pequeno riacho cristalino, e uma sensação de paz toma conta do seu corpo.");
           System.out.println("O que você faz?");
@@ -55,27 +55,27 @@ public class Rooms
           System.out.println("2.Sair da sala");
           System.out.println("3.Explorar");
         }
-        
+
         return sc.nextInt();
     }
 
-    public String screenForThirdRoom(Scanner sc, int chooseUser)
+    public String riddleScreen(Scanner sc, int roomChoices)
     {
         System.out.println("Ao entrar no novo cômodo, o ambiente está mais sereno, você não vê inimigos, no centro é possível ver algo como uma tela de computador com uma mensagem:");
 
-        if(chooseUser == 1)
+        if(roomChoices == 1)
         {
             System.out.println("Você se depara com um pequeno enigma:");
             System.out.println("Eu posso ser o Sol, eu posso ser areia, eu posso ser um pássaro, o que eu sou?");
             System.out.println("Insira sua resposta:");
         }
-        else if(chooseUser == 2)
+        else if(roomChoices == 2)
         {
             System.out.println("Você se depara com um pequeno enigma:");
             System.out.println("Eu posso ser um Deus, um planeta, e medir o calor. O que eu sou?");
             System.out.println("Insira sua resposta:");
         }
-        else if(chooseUser == 3)
+        else if(roomChoices == 3)
         {
             System.out.println("Você se depara com um pequeno enigma:");
             System.out.println("Eu tenho lagos sem água, montanhas sem pedra e cidades sem prédios. O que eu sou?");
