@@ -36,6 +36,7 @@ public class FirstRandomness extends MainChoice
         if(getUserResponse() == 1)
         {
            endGame.oneDeath(); 
+           setContinuationOfTheGame(true);
         }
         else if(getUserResponse() == 2)
         {

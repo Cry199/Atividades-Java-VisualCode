@@ -131,7 +131,7 @@ public class MainChoice
         return continuationOfTheGame;
     }
 
-    public void start(Scanner sc, boolean continuationOfTheGame)
+    public void start(Scanner sc)
     {   
         randomNumberForRooms(); // Numero Aleatorio para escolha de sala
 
@@ -142,7 +142,7 @@ public class MainChoice
 
         System.out.println();
 
-        if(continuationOfTheGame == false)
+        if(getContinuationOfTheGame() == false)
         {
             randomNumberForEnemies(); // Numero Aleatorio para escolha de sala
 
@@ -154,7 +154,7 @@ public class MainChoice
 
         System.out.println();
 
-        if(continuationOfTheGame == false)
+        if(getContinuationOfTheGame() == false)
         {
             randomNumberForEnemies(); 
 

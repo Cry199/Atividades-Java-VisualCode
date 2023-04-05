@@ -7,14 +7,13 @@ class Main {
     {
         Scanner sc = new Scanner(System.in);
         MainChoice mainChoice = new MainChoice();
-        boolean continuationOfTheGame = true;
 
          
         UI.clearScreen();
         UI.printMatch(sc); 
 
         UI.clearScreen();
-        UI.startOfTheMatch(mainChoice, sc, continuationOfTheGame);
+        UI.startOfTheMatch(mainChoice, sc);
 
         sc.close();
     }
