@@ -10,21 +10,20 @@ public class FirstRandomness extends MainChoice
     EndGame endGame = new EndGame();
     GameContinuation gameContinuation = new GameContinuation();
 
-
-    public FirstRandomness(int knife, int option, int sword, int snakeRoom, int roomChoices, int userResponse)
+    public FirstRandomness(int knife, int option, int sword, int snakeRoom, int roomChoices, int userResponse, boolean continuationOfTheGame)
     {
-        super(knife, option, sword, snakeRoom, roomChoices, userResponse);
+        super(knife, option, sword, snakeRoom, roomChoices, userResponse, continuationOfTheGame);
     }
 
-    protected void randomness(Scanner sc, boolean continuationOfTheGame)
+    protected void randomness(Scanner sc)
     {
         if(super.getRoomChoices() == 1)
         {
-            firstChoice(sc, continuationOfTheGame);
+            firstChoice(sc);
         }
         else if(super.getRoomChoices() == 2)
         {
-            secondChoice(sc, continuationOfTheGame);
+            secondChoice(sc);
         }
         else if(super.getRoomChoices() == 3)
         {
@@ -32,7 +31,7 @@ public class FirstRandomness extends MainChoice
         }
     }
 
-    private void firstChoice(Scanner sc, boolean continuationOfTheGame)
+    private void firstChoice(Scanner sc)
     {
         if(super.getUserResponse() == 1)
         {
@@ -50,7 +49,7 @@ public class FirstRandomness extends MainChoice
             else
             {
                 endGame.twoDeath();
-                continuationOfTheGame = false;
+                super.setContinuationOfTheGame(true);
             }
         }
         else if(super.getUserResponse() == 3)
@@ -85,7 +84,7 @@ public class FirstRandomness extends MainChoice
             else
             {
                 endGame.threeDeath();
-                continuationOfTheGame = false;
+                super.setContinuationOfTheGame(true);
             }
         }
         else if(super.getUserResponse() == 4)
@@ -100,12 +99,12 @@ public class FirstRandomness extends MainChoice
             else
             {
                 endGame.fourDeath();
-                continuationOfTheGame = false;
+                super.setContinuationOfTheGame(true);
             }
         }
     }
 
-    private void secondChoice(Scanner sc, boolean continuationOfTheGame)
+    private void secondChoice(Scanner sc)
     {
         if(super.getUserResponse() == 1)
         {
@@ -128,7 +127,7 @@ public class FirstRandomness extends MainChoice
             {
                 clearScreen();
                 endGame.deathGoblin();
-                continuationOfTheGame = false;
+                super.setContinuationOfTheGame(true);
             }
             else if(super.getOption() == 2)
             {

@@ -313,7 +313,7 @@ class Main{
       }  
     }
 
-    if(lobo==2)
+    if(lobo == 2)
     {
       faca = 1;
     }

@@ -13,16 +13,17 @@ public class MainChoice
     private int snakeRoom;
     private int roomChoices;
     private int userResponse;
+    private boolean continuationOfTheGame;
+    private int randomEnemies;
 
     Random gerador = new Random();
     Rooms room = new Rooms();
 
-    public MainChoice(){
-        
-    }
+    /* Main */
+    public MainChoice(){}
 
     /* First Randomness */
-    public MainChoice(int knife, int option, int sword, int snakeRoom, int roomChoices, int userResponse)
+    protected MainChoice(int knife, int option, int sword, int snakeRoom, int roomChoices, int userResponse, boolean continuationOfTheGame)
     {
         this.knife = knife;
         this.option = option;
@@ -30,6 +31,19 @@ public class MainChoice
         this.snakeRoom = snakeRoom;
         this.roomChoices = roomChoices;
         this.userResponse = userResponse;
+        this.continuationOfTheGame = continuationOfTheGame;
+    }
+
+    /* Second Randomness */
+    protected MainChoice(int knife, int option, int sword, int snakeRoom, int userResponse, boolean continuationOfTheGame, int randomEnemies)
+    {
+        this.knife = knife;
+        this.option = option;
+        this.sword = sword;
+        this.snakeRoom = snakeRoom;
+        this.userResponse = userResponse;
+        this.continuationOfTheGame = continuationOfTheGame;
+        this.randomEnemies = randomEnemies;
     }
 
     protected void setKnife(int knife)
@@ -82,34 +96,44 @@ public class MainChoice
         return userResponse;
     }
 
+    protected int getRandomEnemies()
+    {
+        return randomEnemies;
+    }
+
+    protected void setContinuationOfTheGame(boolean continuationOfTheGame)
+    {
+        this.continuationOfTheGame = continuationOfTheGame;
+    }
+
+    protected boolean getContinuationOfTheGame()
+    {
+        return continuationOfTheGame;
+    }
+
     public void start(Scanner sc, boolean continuationOfTheGame)
     {   
         randomNumberForRooms();
 
         this.userResponse = room.screenForFirstRoom(sc, roomChoices);
 
-        choices(sc, continuationOfTheGame);
-
-    }
-
-    private void choices(Scanner sc, boolean continuationOfTheGame)
-    {
-        if(continuationOfTheGame == true)
-        {
-            FirstRandomness firstRandomness = new FirstRandomness(knife, option, sword, snakeRoom, roomChoices, userResponse);
-            firstRandomness.randomness(sc, continuationOfTheGame);
-        }
+        FirstRandomness firstRandomness = new FirstRandomness(knife, option, sword, snakeRoom, roomChoices, userResponse, continuationOfTheGame);
+        firstRandomness.randomness(sc);
 
         System.out.println();
 
-        if(continuationOfTheGame == true)
+        randomNumberForEnemies();
+
+        this.userResponse = room.screenForSecondRoom(sc, randomEnemies);
+
+        if(continuationOfTheGame == false)
         {
             
         }
 
         System.out.println();
 
-        if(continuationOfTheGame == true)
+        if(continuationOfTheGame == false)
         {
 
         }
@@ -118,5 +142,10 @@ public class MainChoice
     private void randomNumberForRooms()
     {
         roomChoices = gerador.nextInt(3) + 1;
+    }
+
+    private void randomNumberForEnemies()
+    {
+        randomEnemies = gerador.nextInt(2) + 1;
     }
 }
