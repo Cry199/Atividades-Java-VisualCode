@@ -168,7 +168,8 @@ public class MainChoice
 
         if(continuationOfTheGame == false)
         {
-
+            TheLastChoice theLastChoice = new TheLastChoice(knife, sword, userResponse);
+            theLastChoice.finalChoice(sc);
         }
     }   
 

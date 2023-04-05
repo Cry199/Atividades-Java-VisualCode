@@ -111,6 +111,7 @@ public class FirstRandomness extends MainChoice
         {
             clearScreen();
             endGame.deathGoblin();
+            setContinuationOfTheGame(true);
         }
         else if(getUserResponse() == 2)
         {
@@ -128,7 +129,7 @@ public class FirstRandomness extends MainChoice
             {
                 clearScreen();
                 endGame.deathGoblin();
-                super.setContinuationOfTheGame(true);
+                setContinuationOfTheGame(true);
             }
             else if(getUserResponse() == 2)
             {
@@ -147,32 +148,32 @@ public class FirstRandomness extends MainChoice
     {
         clearScreen();
 
-        if(super.getUserResponse() == 1)
+        if(getUserResponse() == 1)
         {
             System.out.println("Você se aproxima e repara melhor na arma, é uma lâmina muito bem forjada, seu fio em perfeito estado e com algumas marcações estranhas no cabo.");
             System.out.println("O que deseja fazer?");
             System.out.println("1.Pegar a espada");
             System.out.println("2.Ignorar e ir para a próxima sala");
-            super.setSword(sc.nextInt());
+            setSword(sc.nextInt());
 
             clearScreen();
 
-            gameContinuation.choiceOfSword(super.getSword());
+            gameContinuation.choiceOfSword(getSword());
         }
-        else if(super.getUserResponse() == 2)
+        else if(getUserResponse() == 2)
         {
             System.out.println("Com uma estranha sensação de 'algo está errado', você decide analisar melhor o quarto, passa pelas paredes cautelosamente, pisa no chão em alguns lugares específicos esperando algum tipo de armadilha, se aproxima da espada o suficiente para analisá-la...");
             System.out.println("Mas nada acontece.");
             System.out.println("O que deseja fazer?");
             System.out.println("1.Pegar espada");
             System.out.println("2.Sair da sala");
-            super.setSword(sc.nextInt());
+            setSword(sc.nextInt());
 
             clearScreen();
 
-            gameContinuation.choiceOfSword(super.getSword());
+            gameContinuation.choiceOfSword(getSword());
         }
-        else if(super.getUserResponse() == 3)
+        else if(getUserResponse() == 3)
         {
             System.out.println("Não convencido pela sala em si, e receoso com o que possa acontecer caso se aproxime da lâmina, você sai da sala.");
         }

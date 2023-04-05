@@ -85,6 +85,7 @@ class SecondRandomness extends MainChoice
     if(getUserResponse() == 1)
     {
       endGame.rest();
+      setContinuationOfTheGame(true);
     }
     else if(getUserResponse() == 2)
     {
@@ -192,7 +193,7 @@ class SecondRandomness extends MainChoice
     }
     else if(getUserResponse() == 2)
     {
-      exploreOasis(sc);
+      gameContinuation.exploreOasis();
     }
   }
 
@@ -229,7 +230,7 @@ class SecondRandomness extends MainChoice
     else if(getUserResponse() == 2)
     {
       clearScreen();
-      exploreOasis(sc);
+      gameContinuation.exploreOasis();
     }
   } 
   /*------------- */

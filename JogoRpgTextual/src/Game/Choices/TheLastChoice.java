@@ -1,6 +1,5 @@
 package Game.Choices;
 
-import java.util.Random;
 import java.util.Scanner;
 
 import Game.PrintGame.EndGame;
