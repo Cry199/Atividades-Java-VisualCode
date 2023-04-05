@@ -215,9 +215,10 @@ class Main{
         {
           lobo = 2;
           limpar();
-          finalLobo(lobo,chanceLobo);
+          finalLobo(lobo,chanceLobo); // ????
         }
-        //--------------------------------------------------------------------
+        //------------------------ concluido --------------------------------------------
+
         if(num2 == 2 && resp2 == 1)
         { 
           limpar();
@@ -253,7 +254,7 @@ class Main{
           if(explorar==1)
           {
             System.out.println();
-              System.out.println("Você se senta para organizar seus pensamentos, nada está fazendo sentido, uma casa não poderia ter um óasis assim, o lugar é como se fosse uma ilusão...");
+            System.out.println("Você se senta para organizar seus pensamentos, nada está fazendo sentido, uma casa não poderia ter um óasis assim, o lugar é como se fosse uma ilusão...");
             System.out.println("Enquanto você está pensando, você escuta algo se aproximando... Olhando melhor, é uma Mulher");
             System.out.println("Seu rosto está completamente sujo, seus olhos sem vida e é possível notar diversas manchas de sangue nas roupas, mãos e rosto dela.");
             System.out.println("Ela nota que você está a observando e entra em choque, Você nota a ilusão se distorcendo um pouco.");
@@ -262,60 +263,61 @@ class Main{
             System.out.println("2.Sair da Ilusão");
             ilusao = newScan.nextInt();
             limpar();
-          if(ilusao==1&&espada==1)
-          {
-            System.out.println("Com sua espada em mãos você decide lutar contra a feiticeira, ela não parece forte, porém você não sabe os truques que ela guarda");
-            System.out.println("Enquanto ela corre, você a persegue com facilidade e acerta um corte em sua perna, derrubando-a e saindo da ilusão, a porta está logo à sua frente.");
-            System.out.println("O que fazer?");
-            System.out.println("1.Finalizar ela");
-            System.out.println("2.Sair da sala");
-            feiticeira = newScan.nextInt();
-            limpar();
-            if(feiticeira==1)
+            if(ilusao==1&&espada==1)
             {
-              System.out.println("Com um corte limpo, você mata a feiticeira.\n");
+              System.out.println("Com sua espada em mãos você decide lutar contra a feiticeira, ela não parece forte, porém você não sabe os truques que ela guarda");
+              System.out.println("Enquanto ela corre, você a persegue com facilidade e acerta um corte em sua perna, derrubando-a e saindo da ilusão, a porta está logo à sua frente.");
+              System.out.println("O que fazer?");
+              System.out.println("1.Finalizar ela");
+              System.out.println("2.Sair da sala");
+              feiticeira = newScan.nextInt();
+              limpar();
+              if(feiticeira==1)
+              {
+                System.out.println("Com um corte limpo, você mata a feiticeira.\n");
+              }
+              else if(feiticeira==2)
+              {
+                System.out.println("Vendo o rosto aterrorizado da mulher, você decide não matar ela, e sai em direção à próxima sala.\n");
+              }
+              System.out.println("Você venceu!\n");
             }
-            else if(feiticeira==2)
+            else if(ilusao==1&&espada!=1)
             {
-              System.out.println("Vendo o rosto aterrorizado da mulher, você decide não matar ela, e sai em direção à próxima sala.\n");
+              System.out.println("Você pega a faca que estava em sua mochila e atira na ilusionista, derrubando-a no chão.");
+              System.out.println("O que fazer?");
+              System.out.println("1.Finalizar ela");
+              System.out.println("2.Sair da sala");
+              feiticeira = newScan.nextInt();
+              limpar();
+              if(feiticeira==1)
+              {
+                System.out.println("Com um corte limpo, você mata a feiticeira.\n");
+              }
+              else if(feiticeira==2)
+              {
+                System.out.println("Vendo o rosto aterrorizado da mulher, você decide não matar ela, e sai em direção à próxima sala.\n");
+              }
+              System.out.println("Você venceu!\n");
             }
-            System.out.println("Você venceu!\n");
-          }
-          else if(ilusao==1&&espada!=1)
-          {
-            System.out.println("Você pega a faca que estava em sua mochila e atira na ilusionista, derrubando-a no chão.");
-            System.out.println("O que fazer?");
-            System.out.println("1.Finalizar ela");
-            System.out.println("2.Sair da sala");
-            feiticeira = newScan.nextInt();
-            limpar();
-            if(feiticeira==1)
+            else if(ilusao==2)
             {
-              System.out.println("Com um corte limpo, você mata a feiticeira.\n");
-            }
-            else if(feiticeira==2)
-            {
-              System.out.println("Vendo o rosto aterrorizado da mulher, você decide não matar ela, e sai em direção à próxima sala.\n");
-            }
-            System.out.println("Você venceu!\n");
-          }
-          else if(ilusao==2)
-          {
-            limpar();
-            explorarOasis();
-          } 
+              limpar();
+              explorarOasis();
+            } 
         }
         else if(explorar==2)
         {
-          limpar();
-          explorarOasis();
-        }
+            limpar();
+            explorarOasis();
+          }
       }  
     }
 
+    
     if(lobo == 2)
     {
-      faca = 1;
+      faca = 1;// concluido  
     }
     
     System.out.println();
@@ -378,7 +380,7 @@ class Main{
    System.out.print("\033[H\033[2J");
    System.out.flush();
   }
-  
+   // concluido 
   public static int primeiraSala(int num) /*  */
   {
     Scanner newScan = new Scanner(System.in);
@@ -415,7 +417,7 @@ class Main{
     
     return fim;
   }
-  
+   // concluido 
   public static void goblin()
   {
     System.out.println("Feliz por encontrar um pouco de sorte finalmente, você caminha diretamente até elas.");
@@ -425,13 +427,13 @@ class Main{
     System.out.println("Uma pequena risada é ouvida, e você cai no chão, sentindo a frieza de sua própria pele e uma poça vermelha crescendo.");
     System.out.println("Você foi atacado por um goblin e morreu!Fim de jogo!");
   }
-  
+   // concluido 
   public static void saidaGoblin()
   {
     System.out.println("Estranhando a situação, você decide sair da sala, perto da porta é possível ouvir um som de passos rápidos.");
     System.out.println("Aproveitando que já estava perto da porta, você sai da sala.");
   }
-  
+   // concluido 
   public static void espada(int espada)
   {
     if(espada==1)
@@ -446,7 +448,7 @@ class Main{
       System.out.println("Você saiu da sala.");
     }  
   }
-  
+   // concluido 
   public static int segundaSala(int num2)
   {
     Scanner newScan = new Scanner(System.in);
@@ -475,7 +477,7 @@ class Main{
     
     return fim;
   }
-  
+   // concluido 
   public static int salaLobo()
   {
     Scanner newScan = new Scanner(System.in);
@@ -488,10 +490,11 @@ class Main{
     System.out.println();
     return lobo;
   }
-
+ // concluido 
   public static void finalLobo(int lobo, int chance){
     Scanner newScan = new Scanner(System.in);
-    if(lobo==1){
+    if(lobo==1)
+    {
       System.out.println("Você se prepara, e o lobo avança novamente, buscando rasgar seu pescoço, porém, já sabendo seu curso de ação, você consegue se esquivar e se posicionar em cima do lobo, usando seu peso para mantê-lo no chão.");
       System.out.println("Com ele preso, você decide:");
       System.out.println("1.Matar o lobo");
@@ -506,7 +509,8 @@ class Main{
       }
       System.out.println("Você venceu!");
     }
-    else if(lobo==2){
+    else if(lobo==2)
+    {
       System.out.println("Você decide abrir sua mochila e tira um punhado de roupas e sua faca, enrolando as roupas em seu braço pensando em amortecer um possível dano.\n");
       System.out.println("Você equipou: Defesa improvisada e faca!\n");
       System.out.println("O lobo então avança novamente, buscando atacar seu pescoço, você então defende com seu braço 'fortificado', aguentando um bom dano.");
@@ -514,32 +518,36 @@ class Main{
       System.out.println("Ele afrouxa a mordida, e você o acerta novamente, logo você percebe que ele não é mais um problema.");
       System.out.println("Você derrotou Lobo faminto!");
     }
-    else if(lobo==3){
-      if(chance==3){
-      System.out.println("Com um desespero imenso, você corre até a próxima porta, e consegue fugir.");
+    else if(lobo==3)
+    {
+      if(chance==3)
+      {
+        System.out.println("Com um desespero imenso, você corre até a próxima porta, e consegue fugir.");
       }
-      else{
+      else
+      {
         System.out.println("Com um desespero imenso, você tenta correr até a próxima porta, porém o lobo morde sua perna no meio do caminho, você vê a poça de sangue se formando antes dele arrancar sua cabeça.....");
         System.out.println("Você morreu! Fim de jogo!");
       }
     } 
   }
-
-  public static void descansar(){
+ // concluido 
+  public static void descansar(){ 
      System.out.println("Cansado de suas aventuras anteriores, e com um ambiente tão convidativo, você decide descansar um pouco.");
-        System.out.println("Você se deita na costa de uma árvore, e tenta pegar no sono... lentamente tudo se escurece...");
-        System.out.println(".\n.\n.\n.\n");
-        System.out.println("De repente, você acorda num susto!");
-        System.out.println("Você não consegue mais sentir seu corpo direito, todas as paredes se tornaram pretas com inscrições vermelhas, você não consegue ler absolutamente nada, mas o círculo com símbolos em volta não tem erro... É um ritual.");
-        System.out.println("Sem conseguir mexer seu corpo, uma faca é fincada em seu peito, sua respiração começa a fica descompassada, e você sente o sangue saindo de seu corpo.");
-        System.out.println("'Mais um sacrifício em nome do nosso Senhor!'");
-        System.out.println("Você morreu! Fim de jogo!");
+      System.out.println("Você se deita na costa de uma árvore, e tenta pegar no sono... lentamente tudo se escurece...");
+      System.out.println(".\n.\n.\n.\n");
+      System.out.println("De repente, você acorda num susto!");
+      System.out.println("Você não consegue mais sentir seu corpo direito, todas as paredes se tornaram pretas com inscrições vermelhas, você não consegue ler absolutamente nada, mas o círculo com símbolos em volta não tem erro... É um ritual.");
+      System.out.println("Sem conseguir mexer seu corpo, uma faca é fincada em seu peito, sua respiração começa a fica descompassada, e você sente o sangue saindo de seu corpo.");
+      System.out.println("'Mais um sacrifício em nome do nosso Senhor!'");
+      System.out.println("Você morreu! Fim de jogo!");
   }
-  
+  // concluido 
   public static void explorarOasis()
   {
     System.out.println("Você decide explorar a sala, e com um pouco de esforço consegue achar uma porta camuflada no meio de folhas e árvores, e decide sair da sala.");  
   }
+  // concluido 
   
   public static String terceiraSala(int num3)
   {

@@ -12,13 +12,7 @@ public class EndGame
         System.out.println("Você foi atacado por um goblin e morreu! Fim de jogo!");
     }
 
-    public void wolfGameOver()
-    {
-        System.out.println("Com um desespero imenso, você tenta correr até a próxima porta, porém o lobo morde sua perna no meio do caminho, você vê a poça de sangue se formando antes dele arrancar sua cabeça.....");
-        System.out.println("Você morreu! Fim de jogo!");
-    }
-
-    public void descansar()
+    public void rest()
     {
         System.out.println("Cansado de suas aventuras anteriores, e com um ambiente tão convidativo, você decide descansar um pouco.");
         System.out.println("Você se deita na costa de uma árvore, e tenta pegar no sono... lentamente tudo se escurece...");
@@ -27,6 +21,13 @@ public class EndGame
         System.out.println("Você não consegue mais sentir seu corpo direito, todas as paredes se tornaram pretas com inscrições vermelhas, você não consegue ler absolutamente nada, mas o círculo com símbolos em volta não tem erro... É um ritual.");
         System.out.println("Sem conseguir mexer seu corpo, uma faca é fincada em seu peito, sua respiração começa a fica descompassada, e você sente o sangue saindo de seu corpo.");
         System.out.println("'Mais um sacrifício em nome do nosso Senhor!'");
+        System.out.println("Você morreu! Fim de jogo!");
+    }
+
+    /* Parte do Lobo */
+    public void wolfsDeath()
+    {
+        System.out.println("Com um desespero imenso, você tenta correr até a próxima porta, porém o lobo morde sua perna no meio do caminho, você vê a poça de sangue se formando antes dele arrancar sua cabeça.....");
         System.out.println("Você morreu! Fim de jogo!");
     }
 

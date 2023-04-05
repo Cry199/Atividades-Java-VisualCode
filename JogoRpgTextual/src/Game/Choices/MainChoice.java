@@ -91,6 +91,11 @@ public class MainChoice
         return roomChoices;
     }
 
+    protected void setUserResponse(int userResponse)
+    {
+        this.userResponse = userResponse;
+    }
+
     protected int getUserResponse()
     {
         return userResponse;
@@ -113,29 +118,30 @@ public class MainChoice
 
     public void start(Scanner sc, boolean continuationOfTheGame)
     {   
-        randomNumberForRooms();
+        randomNumberForRooms(); // Numero Aleatorio para escolha de sala
 
-        this.userResponse = room.screenForFirstRoom(sc, roomChoices);
+        this.userResponse = room.screenForFirstRoom(sc, roomChoices); // Primeira Sala 
 
         FirstRandomness firstRandomness = new FirstRandomness(knife, option, sword, snakeRoom, roomChoices, userResponse, continuationOfTheGame);
         firstRandomness.randomness(sc);
 
         System.out.println();
 
-        randomNumberForEnemies();
+        randomNumberForEnemies(); // Numero Aleatorio para escolha de sala
 
-        this.userResponse = room.screenForSecondRoom(sc, randomEnemies);
+        this.userResponse = room.screenForSecondRoom(sc, randomEnemies); // Segunda Sala 
 
         if(continuationOfTheGame == false)
         {
-            
+            SecondRandomness secondRandomness = new SecondRandomness(knife, option, sword, snakeRoom, userResponse, continuationOfTheGame, randomEnemies)
+            secondRandomness.randomness(sc);
         }
 
         System.out.println();
 
         if(continuationOfTheGame == false)
         {
-
+            
         }
     }
 
