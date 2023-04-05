@@ -58,4 +58,32 @@ public class EndGame
     }
 
     /* --------------------- */
+
+    public void riddleError()
+    {
+        System.out.println("O estranho mecanismo recebe sua resposta e analisa por alguns segundos...");
+        System.out.println(".\n.\n.\n.\n.\n.");
+        System.out.println("Resposta INCORRETA");
+        System.out.println("Então de todas as paredes e do teto, você pode ver lâminas se formando magicamente como espinhos. Você não tem como desviar");
+        System.out.println("Sem tempo para reagir, as lâminas são lançadas a uma velocidade absurda em você.");
+        System.out.println("Você morreu! Fim de jogo!");
+    }
+
+    /* Boss */
+    public void runAwayFromTheBoss()
+    {
+        System.out.println("Temendo a criatura, você tenta sair pela porta onde voltou, o demônio abre ela com magia e você corre, como se não houvesse amanhã...\n");
+        System.out.println("Uma, duas, três portas, e então a última porta finalmente se abre...");
+        System.out.println("Você volta à sala do demônio, que não parece muito feliz por você ter tentado fugir...");
+        System.out.println("Ele voa rapidamente, e em um instante, sua cabeça está no chão...\n");
+        System.out.println("\t\t\t\t\t'FRACO'\n");
+        System.out.println("\t\t\t\t\tVOCÊ MORREU!\n\t\t\t\t\tFIM DE JOGO!");
+    }
+
+    public void postSquidDeath()
+    {
+        System.out.println("O Demônio olha para você com um ar de superioridade...\n");
+        System.out.println("'Você lutou bem, humano, mas sua ingenuidade e arrogância foram maiores que você...''");
+        System.out.println("\t\t\t\t\tVOCÊ MORREU!\n\t\t\t\t\tFIM DE JOGO!");
+    }
 }

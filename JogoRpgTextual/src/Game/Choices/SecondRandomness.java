@@ -10,13 +10,13 @@ class SecondRandomness extends MainChoice
 { 
   private int wolfAttackChance;
   
-  Random gerador = new Random();
-  EndGame endGame = new EndGame();
-  GameContinuation gameContinuation = new GameContinuation();
+  private Random gerador = new Random();
+  private EndGame endGame = new EndGame();
+  private GameContinuation gameContinuation = new GameContinuation();
 
-  public SecondRandomness(int knife, int option, int sword, int snakeRoom, int userResponse, boolean continuationOfTheGame, int randomEnemies)
+  public SecondRandomness(int knife, int sword, int snakeRoom, int userResponse, boolean continuationOfTheGame, int randomEnemies)
   {
-    super(knife, option, sword, snakeRoom, userResponse, continuationOfTheGame, randomEnemies);
+    super(knife, sword, snakeRoom, userResponse, continuationOfTheGame, randomEnemies);
   }
   
   protected void randomness(Scanner sc)

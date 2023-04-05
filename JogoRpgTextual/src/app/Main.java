@@ -9,9 +9,9 @@ class Main {
         MainChoice mainChoice = new MainChoice();
         boolean continuationOfTheGame = true;
 
-        /* 
+         
         UI.clearScreen();
-        UI.printMatch(sc); */
+        UI.printMatch(sc); 
 
         UI.clearScreen();
         UI.startOfTheMatch(mainChoice, sc, continuationOfTheGame);

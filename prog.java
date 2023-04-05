@@ -321,7 +321,7 @@ class Main{
     }
     
     System.out.println();
-    //-------------1234------------------------------------------------------
+    //-------------concluido ------------------------------------------------------
     
     if(num2 == 1 && lobo== 1 || num2 == 1 && lobo == 2||
     num2 == 1 && lobo == 3 && chanceLobo == 3 ||
@@ -342,7 +342,7 @@ class Main{
         erroSala3();
       } 
     }
-    //---------------------------------------------------------------------------
+    //----------------------Concluido-----------------------------------------------------
     System.out.println();
     //---------------------------------------------------------------------------
     if(acertoSala3==1)
@@ -586,7 +586,7 @@ class Main{
   }
 
   public static void acertoSala3(){
-     System.out.println("O estranho mecanismo recebe sua resposta e analisa por alguns segundos...");
+    System.out.println("O estranho mecanismo recebe sua resposta e analisa por alguns segundos...");
     System.out.println(".\n.\n.\n.\n.\n.");
     System.out.println("Resposta CORRETA");
     System.out.println("A tela pisca em verde e você pode ver uma das paredes descendo lentamente, revelando uma nova passagem.");
@@ -610,15 +610,15 @@ class Main{
     }
     else if(adaga==1)
     {
-      dano =2;
+      dano = 2;
     }
     else
     {
       dano = 1;
     }
 
-    int ataqueDemonio =0;
-    int opcaoLuta =0;
+    int ataqueDemonio = 0;
+    int opcaoLuta = 0;
 
     System.out.println("Você inicia uma batalha contra ele, se prepare");
     do
@@ -632,7 +632,7 @@ class Main{
       opcaoLuta = newScan.nextInt();
       limpar();
       if(opcaoLuta==1&&espada==1){
-        int ataque = (int) ((Math.random() *4));
+        int ataque = (int) ((Math.random() * 4));
         if(ataque==2){
           hpBoss = hpBoss - dano;
           System.out.println("Você acerta! O demonio possui agora "+hpBoss+ " de vida");
@@ -643,19 +643,18 @@ class Main{
         }
       }
       else if(opcaoLuta==1&&faca==1){
-          int ataque = (int) ((Math.random() *3));
+          int ataque = (int) ((Math.random() * 3));
         if(ataque==2){
           hpBoss = hpBoss - dano;
           System.out.println("Você acerta! O demonio possui agora "+hpBoss+ " de vida\n");
-         
-          
         }
         else{
           System.out.println("Voce errou, aguarde a proxima chance\n");
         }
         }
-        else if(opcaoLuta==1&&espada!=1&&faca!=1){
-          int ataque = (int) ((Math.random() *2));
+      else if(opcaoLuta==1&&espada!=1&&faca!=1)
+      {
+          int ataque = (int) ((Math.random() * 2));
         if(ataque==0){
           hpBoss = hpBoss - dano;
           System.out.println("Você acerta! O demonio possui agora "+hpBoss+ " de vida\n");
@@ -665,74 +664,91 @@ class Main{
           System.out.println("Voce errou, aguarde a proxima chance\n");
         }
         }
-    else if(opcaoLuta==2){
-      System.out.println("Voce se posiciona para uma defesa ao ataque do inimigo!\n");
-    }
-    else if(opcaoLuta==3){
-      System.out.println("Voce resolve esperar o ataque do oponente e realizar uma esquiva!\n");
+      else if(opcaoLuta==2){
+        System.out.println("Voce se posiciona para uma defesa ao ataque do inimigo!\n");
       }
-  
+      else if(opcaoLuta==3){
+        System.out.println("Voce resolve esperar o ataque do oponente e realizar uma esquiva!\n");
+        }
+    
     //DEMONIO TURNO
     System.out.println("VEZ DO DEMONIO");
-  System.out.println("O DEMONIO REALIZA UM ATAQUE");
-  if(opcaoLuta==1){
-    ataqueDemonio = (int) ((Math.random()*3));
-    if(ataqueDemonio==0){
-      System.out.println("O DEMONIO REALIZA O ATAQUE COM SUCESSO\n");
-      hpUsuario = hpUsuario - 2;
-      System.out.println("Você perde 2 de HP!\n");
-    }
-    else {
-      System.out.println("O DEMONIO ERROU O ATAQUE DELE, VOCE TEM NOVAMENTE SUA CHANCE");
-    }
-  }
-    else if(opcaoLuta==2&&espada!=1){
-     ataqueDemonio = (int) (Math.random()*3);
-     if(ataqueDemonio==0){
-       System.out.println("O DEMÔNIO ACERTA!\nMas você já esperava por isso e recebe 1 de dano!\n");
-       hpUsuario = hpUsuario-1;
-     }
-  else{
-    System.out.println("O demônio erra!");
-  }
-    
- }
-    else if(opcaoLuta==2&&espada==1){
-      ataqueDemonio = (int) (Math.random()*2);
-      if(ataqueDemonio==1){
-      System.out.println("Você defende o golpe e contra ataca com um corte limpo!\n");
-        System.out.println("Ele recebe 2 de dano!");
-      hpBoss = hpBoss - 2;
+    System.out.println("O DEMONIO REALIZA UM ATAQUE");
+    if(opcaoLuta==1)
+    {
+      ataqueDemonio = (int) ((Math.random()*3));
+      if(ataqueDemonio==0)
+      {
+        System.out.println("O DEMONIO REALIZA O ATAQUE COM SUCESSO\n");
+        hpUsuario = hpUsuario - 2;
+        System.out.println("Você perde 2 de HP!\n");
       }
-      else{
+      else 
+      {
         System.out.println("O DEMONIO ERROU O ATAQUE DELE, VOCE TEM NOVAMENTE SUA CHANCE");
       }
-      
     }
-else if(opcaoLuta==3){
-  ataqueDemonio= (int) (Math.random()*5);
-  if(ataqueDemonio==4){
-    System.out.println("Mesmo com seu preparo, ELE ACERTA! Como estava preparando para desviar e não defender, você recebe 3 de dano!");
-    hpUsuario = hpUsuario-3;
-  }
-  else{
-    System.out.println("Ele tenta te acertar, mas você esquiva com sucesso!");
-  }
-}    
- if(espada==1&&hpBoss==16||faca==1&&hpBoss==15||faca!=1&&espada!=1&&hpBoss==15){
-   do{
-   System.out.println("\n'Você realmente tem potencial! ME ENTRETENHA MAIS!'\n");
-     contadorFala1 = 0;
-   }while(contadorFala1==1);
- }
-  if(espada==1&&hpBoss==7||faca==1&&hpBoss==8||faca!=1&&espada!=1&&hpBoss==10){
-    do{
-   System.out.println("\n'AINDA NÃO TERMINAMOS AQUI!'\n");
-      contadorFala2=0;
-    }while(contadorFala2==1);
- }
+    else if(opcaoLuta==2&&espada!=1)
+    {
+      ataqueDemonio = (int) (Math.random()*3);
 
-}while(hpBoss>0&&hpUsuario>0);
+      if(ataqueDemonio==0)
+      {
+        System.out.println("O DEMÔNIO ACERTA!\nMas você já esperava por isso e recebe 1 de dano!\n");
+        hpUsuario = hpUsuario-1;
+      }
+      else
+      {
+        System.out.println("O demônio erra!");
+      }
+    }
+    else if(opcaoLuta==2&&espada==1)
+    {
+      ataqueDemonio = (int) (Math.random()*2);
+      if(ataqueDemonio==1)
+      {
+        System.out.println("Você defende o golpe e contra ataca com um corte limpo!\n");
+        System.out.println("Ele recebe 2 de dano!");
+        hpBoss = hpBoss - 2;
+      }
+      else
+      {
+        System.out.println("O DEMONIO ERROU O ATAQUE DELE, VOCE TEM NOVAMENTE SUA CHANCE");
+      }
+    }
+    else if(opcaoLuta==3)
+    {
+      ataqueDemonio= (int) (Math.random()*5);
+      if(ataqueDemonio==4)
+      {
+        System.out.println("Mesmo com seu preparo, ELE ACERTA! Como estava preparando para desviar e não defender, você recebe 3 de dano!");
+        hpUsuario = hpUsuario-3;
+      }
+      else
+      {
+        System.out.println("Ele tenta te acertar, mas você esquiva com sucesso!");
+      }
+    }    
+    if(espada==1&&hpBoss==16||faca==1&&hpBoss==15||faca!=1&&espada!=1&&hpBoss==15)
+    {
+      do
+      {
+        System.out.println("\n'Você realmente tem potencial! ME ENTRETENHA MAIS!'\n");
+        contadorFala1 = 0;
+      }
+      while(contadorFala1==1);
+    }
+      if(espada==1&&hpBoss==7||faca==1&&hpBoss==8||faca!=1&&espada!=1&&hpBoss==10)
+      {
+        do
+        {
+          System.out.println("\n'AINDA NÃO TERMINAMOS AQUI!'\n");
+          contadorFala2=0;
+        } 
+        while(contadorFala2==1);
+   }
+  }
+  while(hpBoss>0&&hpUsuario>0);
     
     if(hpUsuario>0){
       System.out.println("Você finaliza o demônio, tirando sua vida... Analisando melhor a sala, você encontra no fundo dela há uma outra passagem.");

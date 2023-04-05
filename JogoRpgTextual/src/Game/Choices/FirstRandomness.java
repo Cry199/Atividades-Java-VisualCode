@@ -7,12 +7,12 @@ import Game.PrintGame.GameContinuation;
 
 public class FirstRandomness extends MainChoice 
 {
-    EndGame endGame = new EndGame();
-    GameContinuation gameContinuation = new GameContinuation();
+    private EndGame endGame = new EndGame();
+    private GameContinuation gameContinuation = new GameContinuation();
 
-    public FirstRandomness(int knife, int option, int sword, int snakeRoom, int roomChoices, int userResponse, boolean continuationOfTheGame)
+    public FirstRandomness(int knife,int sword, int snakeRoom, int roomChoices, int userResponse, boolean continuationOfTheGame)
     {
-        super(knife, option, sword, snakeRoom, roomChoices, userResponse, continuationOfTheGame);
+        super(knife, sword, snakeRoom, roomChoices, userResponse, continuationOfTheGame);
     }
 
     protected void randomness(Scanner sc)
@@ -120,16 +120,16 @@ public class FirstRandomness extends MainChoice
             System.out.println("O que deseja fazer?");
             System.out.println("1.Pegar as moedas");
             System.out.println("2.Sair da sala");
-            super.setOption(sc.nextInt());
+            super.setUserResponse(sc.nextInt());
 
             System.out.println();
-            if(super.getOption() == 1)
+            if(getUserResponse() == 1)
             {
                 clearScreen();
                 endGame.deathGoblin();
                 super.setContinuationOfTheGame(true);
             }
-            else if(super.getOption() == 2)
+            else if(getUserResponse() == 2)
             {
                 clearScreen();
                 gameContinuation.goblinExit();

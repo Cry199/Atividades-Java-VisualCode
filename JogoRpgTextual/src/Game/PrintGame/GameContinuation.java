@@ -87,4 +87,23 @@ public class GameContinuation
 
         System.out.println("Você venceu!\n");
     }
+
+    public void riddleHit()
+    {
+        System.out.println("O estranho mecanismo recebe sua resposta e analisa por alguns segundos...");
+        System.out.println(".\n.\n.\n.\n.\n.");
+        System.out.println("Resposta CORRETA");
+        System.out.println("A tela pisca em verde e você pode ver uma das paredes descendo lentamente, revelando uma nova passagem.");
+        System.out.println("Você passou da sala do enigma!");
+    }
+
+
+    /*  */
+    public void userVictory()
+    {
+        System.out.println("Você finaliza o demônio, tirando sua vida... Analisando melhor a sala, você encontra no fundo dela há uma outra passagem.");
+        System.out.println("Você entra, e encontra a sala de tesouros do Demônio, riquezas das mais diversas, armaduras de ouro, espadas de prata, utensílios de prata, barras de ouro, entre outros diversas jóias e pertences valiosos...\n");
+        System.out.println("Feliz com sua conquista, você pega o máximo de tesouros possíveis e volta para casa...");
+        System.out.println("\t\t\t\t\tVOCÊ VENCEU!\n\t\t\t\t OBRIGADO POR JOGAR!");
+    }
 }

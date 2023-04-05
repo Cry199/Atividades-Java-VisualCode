@@ -8,25 +8,24 @@ import Game.Rooms.Rooms;
 public class MainChoice
 {
     private int knife;
-    private int option;
     private int sword;
     private int snakeRoom;
     private int roomChoices;
     private int userResponse;
     private boolean continuationOfTheGame;
     private int randomEnemies;
+    private String riddleAnswer;
 
-    Random gerador = new Random();
-    Rooms room = new Rooms();
+    private Random gerador = new Random();
+    private Rooms room = new Rooms();
 
     /* Main */
     public MainChoice(){}
 
     /* First Randomness */
-    protected MainChoice(int knife, int option, int sword, int snakeRoom, int roomChoices, int userResponse, boolean continuationOfTheGame)
+    protected MainChoice(int knife, int sword, int snakeRoom, int roomChoices, int userResponse, boolean continuationOfTheGame)
     {
         this.knife = knife;
-        this.option = option;
         this.sword = sword;
         this.snakeRoom = snakeRoom;
         this.roomChoices = roomChoices;
@@ -35,15 +34,31 @@ public class MainChoice
     }
 
     /* Second Randomness */
-    protected MainChoice(int knife, int option, int sword, int snakeRoom, int userResponse, boolean continuationOfTheGame, int randomEnemies)
+    protected MainChoice(int knife, int sword, int snakeRoom, int userResponse, boolean continuationOfTheGame, int randomEnemies)
     {
         this.knife = knife;
-        this.option = option;
         this.sword = sword;
         this.snakeRoom = snakeRoom;
         this.userResponse = userResponse;
         this.continuationOfTheGame = continuationOfTheGame;
         this.randomEnemies = randomEnemies;
+    }
+
+    /* Riddle Randomness */
+    protected MainChoice(String riddleAnswer, int userResponse, int roomChoices, boolean continuationOfTheGame)
+    {
+        this.riddleAnswer = riddleAnswer;
+        this.userResponse = userResponse;
+        this.roomChoices = roomChoices;
+        this.continuationOfTheGame = continuationOfTheGame;
+    }
+
+    /* The Last Choice */
+    protected MainChoice(int knife, int sword, int userResponse)
+    {
+        this.knife = knife;
+        this.sword = sword;
+        this.userResponse = userResponse;
     }
 
     protected void setKnife(int knife)
@@ -66,16 +81,6 @@ public class MainChoice
         return sword;
     }
 
-    protected void setOption(int option)
-    {
-        this.option = option;
-    }
-
-    protected int getOption()
-    {
-        return option;
-    }
-
     protected void setSnakeRoom(int snakeRoom)
     {
         this.snakeRoom = snakeRoom;
@@ -89,6 +94,16 @@ public class MainChoice
     protected int getRoomChoices()
     {
         return roomChoices;
+    }
+
+    protected void setRiddleAnswer(String riddleAnswer)
+    {
+        this.riddleAnswer = riddleAnswer;
+    }
+
+    protected String getRiddleAnswer()
+    {
+        return riddleAnswer;
     }
 
     protected void setUserResponse(int userResponse)
@@ -122,18 +137,18 @@ public class MainChoice
 
         this.userResponse = room.screenForFirstRoom(sc, roomChoices); // Primeira Sala 
 
-        FirstRandomness firstRandomness = new FirstRandomness(knife, option, sword, snakeRoom, roomChoices, userResponse, continuationOfTheGame);
+        FirstRandomness firstRandomness = new FirstRandomness(knife, sword, snakeRoom, roomChoices, userResponse, continuationOfTheGame);
         firstRandomness.randomness(sc);
 
         System.out.println();
 
-        randomNumberForEnemies(); // Numero Aleatorio para escolha de sala
-
-        this.userResponse = room.screenForSecondRoom(sc, randomEnemies); // Segunda Sala 
-
         if(continuationOfTheGame == false)
         {
-            SecondRandomness secondRandomness = new SecondRandomness(knife, option, sword, snakeRoom, userResponse, continuationOfTheGame, randomEnemies)
+            randomNumberForEnemies(); // Numero Aleatorio para escolha de sala
+
+            this.userResponse = room.screenForSecondRoom(sc, randomEnemies); // Segunda Sala 
+
+            SecondRandomness secondRandomness = new SecondRandomness(knife, sword, snakeRoom, userResponse, continuationOfTheGame, randomEnemies);
             secondRandomness.randomness(sc);
         }
 
@@ -141,9 +156,21 @@ public class MainChoice
 
         if(continuationOfTheGame == false)
         {
-            
+            randomNumberForEnemies(); 
+
+            this.riddleAnswer = room.riddleScreen(sc, roomChoices); 
+
+            RiddleOfRandomness riddleOfRandomness = new RiddleOfRandomness(riddleAnswer, userResponse, roomChoices, continuationOfTheGame);
+            riddleOfRandomness.validateRiddleHit();
         }
-    }
+
+        System.out.println();
+
+        if(continuationOfTheGame == false)
+        {
+
+        }
+    }   
 
     private void randomNumberForRooms()
     {
