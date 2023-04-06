@@ -61,6 +61,7 @@ public class MainChoice
         this.userResponse = userResponse;
     }
 
+    /* Get & Set */
     protected void setKnife(int knife)
     {
         this.knife = knife;
@@ -130,9 +131,28 @@ public class MainChoice
     {
         return continuationOfTheGame;
     }
+    /* -------------- */
 
+    /* Inicio da Partida */
     public void start(Scanner sc)
     {   
+        partOne(sc); // Um Parte
+
+        System.out.println();
+
+        partTwo(sc); // Dois Parte
+
+        System.out.println();
+
+        partThree(sc); // Três Parte
+
+        System.out.println();
+
+        finalPart(sc); // Ultima Parte
+    }
+
+    private void partOne(Scanner sc)
+    {
         randomNumberForRooms(); // Numero Aleatorio para escolha de sala
 
         this.userResponse = room.screenForFirstRoom(sc, roomChoices); // Primeira Sala 
@@ -140,9 +160,14 @@ public class MainChoice
         FirstRandomness firstRandomness = new FirstRandomness(knife, sword, snakeRoom, roomChoices, userResponse, continuationOfTheGame);
         firstRandomness.randomness(sc);
 
-        System.out.println();
+        this.knife = firstRandomness.getKnife();
+        this.sword = firstRandomness.getSword();
+        this.continuationOfTheGame = firstRandomness.getContinuationOfTheGame();
+    }
 
-        if(getContinuationOfTheGame() == false)
+    private void partTwo(Scanner sc)
+    {
+        if(getContinuationOfTheGame() == false) // Validação da Morte
         {
             randomNumberForEnemies(); // Numero Aleatorio para escolha de sala
 
@@ -150,29 +175,39 @@ public class MainChoice
 
             SecondRandomness secondRandomness = new SecondRandomness(knife, sword, snakeRoom, userResponse, continuationOfTheGame, randomEnemies);
             secondRandomness.randomness(sc);
-        }
 
-        System.out.println();
+            this.knife = secondRandomness.getKnife();
+            this.continuationOfTheGame = secondRandomness.getContinuationOfTheGame();
+        } 
+    }
 
-        if(getContinuationOfTheGame() == false)
+    private void partThree(Scanner sc)
+    {
+        if(getContinuationOfTheGame() == false) // Validação da Morte
         {
-            randomNumberForEnemies(); 
+            randomNumberForEnemies(); // Numero Aleatorio para escolha de sala
 
-            this.riddleAnswer = room.riddleScreen(sc, roomChoices); 
+            this.riddleAnswer = room.riddleScreen(sc, roomChoices);  // Riddle Sala 
 
             RiddleOfRandomness riddleOfRandomness = new RiddleOfRandomness(riddleAnswer, userResponse, roomChoices, continuationOfTheGame);
             riddleOfRandomness.validateRiddleHit();
+            
+            this.continuationOfTheGame = riddleOfRandomness.getContinuationOfTheGame();
         }
+    }
 
-        System.out.println();
-
-        if(continuationOfTheGame == false)
+    private void finalPart(Scanner sc)
+    {
+        if(continuationOfTheGame == false) // Validação da Morte
         {
             TheLastChoice theLastChoice = new TheLastChoice(knife, sword, userResponse);
-            theLastChoice.finalChoice(sc);
-        }
-    }   
+            theLastChoice.finalChoice(sc); // Boss Sala 
 
+            this.continuationOfTheGame = theLastChoice.getContinuationOfTheGame();
+        }
+    }
+
+    /* Numero Aleatorio para escolha de sala e inimigo */
     private void randomNumberForRooms()
     {
         roomChoices = gerador.nextInt(3) + 1;

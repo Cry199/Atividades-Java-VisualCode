@@ -92,14 +92,14 @@ public class TheLastChoice  extends MainChoice
 
             //DEMONIO TURNO
 
-            clearScreen();
+            
             System.out.println("VEZ DO DEMONIO");
             System.out.println("O DEMONIO REALIZA UM ATAQUE");
 
             bossShift();
 
             bossTalks();
-            clearScreen();
+            
         }
         while(bossLife > 0 && userLife > 0);
     }
