@@ -5,11 +5,12 @@ import java.util.Random;
 public class HospitalQueueManagement 
 {
 	private String[] queue;
-	private int last;
-	private int next;
+	private int last = -2;
+	private int next = -1;
 
-	String[] filas1 = new String[5];
-	
+	private String[] filas1 = new String[5];
+	private int x = -1;
+
 	public HospitalQueueManagement() {}
 	
 	public HospitalQueueManagement(String[] queue, int last, int next) {
@@ -17,45 +18,43 @@ public class HospitalQueueManagement
 		this.last = last;
 		this.next = next;
 	}
-	
-	public int getLast() {
-		return last;
-	}
-    
-	public void setLast(int last) {
-		this.last = last;
-	}
-
-	public int getNext() {
-		return next;
-	}
-	public void setNext(int next) {
-		this.next = next;
-	}
-	
-	public void setQueue(String[] queue) 
-	{
-		this.queue = queue;
-	}
 
 	public String[] getPassword(boolean preferential)
 	{
 		return queue;
 	}
 	
-	public void next()
-	{	
-		preferencial();
+	public void next(int x)
+	{
+		if(x == 1)
+		{
+			fila();
+		}
 
-		next++;
-		last++;
+		if(x == 2)
+		{
+			preferencial();	
+
+			next++;
+			last++;
+		}
 	}
-	
+
 	public void drawBoard()
 	{
+		toFillIn();
 
 		System.out.printf("|---------------------|\n");
-		System.out.printf("| %s |\n", String.format("%-19s","Próximo: " + queue[next]));
+
+		if(next != -1)
+		{
+			System.out.printf("| %s |\n", String.format("%-19s","Próximo: " + queue[next]));
+		}
+		else
+		{
+			System.out.printf("|         Null        |\n");
+		}
+		
 		System.out.printf("|---------------------|\n");
 		System.out.printf("|   Últimas senhas:   |\n");
 
@@ -81,14 +80,21 @@ public class HospitalQueueManagement
 
 	public void entireQueue()
 	{
-		for (String s: queue) 
+		for (int i = 0; i < queue.length; i++) 
 		{
-			System.out.println(s);
+			System.out.print(queue[i] + " ");
+
+			if((i + 1) % 3 == 0)
+			{
+				System.out.println();
+			}
 		}
 	}
 	
-	public void fila(int x, boolean preferential)
+	private void fila()
 	{	
+		x++;
+
 		if(x == filas1.length)
 		{
 			String[] filas2 = new String[filas1.length];
@@ -102,24 +108,15 @@ public class HospitalQueueManagement
                 filas1[i] = filas2[i];
             }     
 		}
-		filas1[x] = senhaAle(preferential);
+		filas1[x] = preferredTrueOrFalse();
 
 		toFillIn();
 	}
 	
-	private String senhaAle(boolean preferential)
+	private String preferredTrueOrFalse()
 	{
-		Random gerador = new Random();
-		int n = gerador.nextInt(900) + 100;
-		
-		if(preferential == true)
-		{
-			return n + "P";
-		}
-		else
-		{
-			return n + "N";
-		}
+		Random rd = new Random();
+		return (rd.nextInt(900) + 100) + (rd.nextInt(4) == 1 ? "P" : "N");
 	}
 
     private void preferencial() 

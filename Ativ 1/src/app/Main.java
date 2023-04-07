@@ -4,50 +4,56 @@ import java.util.Scanner;
 
 import entities.HospitalQueueManagement;
 
-public class Main {
+public class Main 
+{
+	public static void main(String[] args) 
+	{	
+		clearScreen();
 
-	public static void main(String[] args) {
-		
 		Scanner sc = new Scanner(System.in);
 		HospitalQueueManagement hQM = new HospitalQueueManagement();
 
-		int n = 0, x= -1;
-
-		hQM.setLast(-2);
-		hQM.setNext(-1);
+		int n = 0;
 		do 
 		{
+			System.out.println("\n");
 			System.out.println("(1) Retirar nova senha.");
 			System.out.println("(2) Próximo");
 			System.out.println("(3) Exibir Quadro");
 			System.out.println("(4) Filas inteira");
 			System.out.println("(0) Sair");
 			n = sc.nextInt();
-			
+
+			System.out.println("\n");
+			clearScreen();
             if(n == 1)
 			{
-				x++;
-                System.out.println("A Senha e preferencial (y/n)"); 
-                Boolean p = sc.nextBoolean();
-
-				hQM.fila(x , p);
+				hQM.next(n);
 			}
 			else if(n == 2)
 			{
-                hQM.next();
+                hQM.next(n);
 			}
 			else if(n == 3)
 			{
+				System.out.println("\n");
 				hQM.drawBoard();
 			}
-			else if(n == 4 && x != -1)
+			else if(n == 4)
 			{
+				System.out.println("\n");
 				hQM.entireQueue();
 			}
 		} 
 		while (n != 0);
 
         sc.close();
+	}
+
+	public static void clearScreen() 
+    {
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
 	}
 
 }
